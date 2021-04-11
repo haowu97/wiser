@@ -7,4 +7,4 @@ module.exports = {
       })
       md.use(require('markdown-it-katex'))
       }
-}
+  }
