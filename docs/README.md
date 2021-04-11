@@ -99,59 +99,6 @@ Fama-French五因子模型将超额收益分为5个因子来解释，具体如�
 
 因子计算方法举例：
 
-**【SMB】**是小市值股票相对大市值股票的收益，SMB的计算方式是：首先把市场里面的所有股票按市值排序，然后等分成三份：第一份是大市值股票（市值在所有股票中最大的1/3），第二份是中市值股票，第三份是小市值股票（市值在所有股票中最小的1/3）。
-
-$$
-SMB = \text{小市值股票的平均期望收益率} - \text{大市值股票的期望收益率}
-$$
-
-## 3. 基于Barra多因子模型的业绩归因
-
-在（风险）多因子模型中，**因子暴露（factor exposure）**和**因子收益率（factor return）**是两个核心的概念。不清楚它们的定义将影响对多因子模型的理解。**所谓因子，就是一个可以描述股票某方面特征的因素**，比如行业因子描述了股票是否属于这个行业，P/E 因子描述股票 Price-to-Earnings ratio。因子暴露就是股票在因子所代表的特征上的取值，比如一个股票的 P/E 为 15.9，那么它对 P/E 因子的因子暴露就是 15.9。**对于一个给定的因子，按照某种权重组合所有股票便形成了一个基于该因子构建的投资组合，该投资组合的收益率就被定义为这个因子的收益率。**
-
-对于给定的因子，如何构建因子投资组合呢？常见的做法是，将所有个股在该因子上的因子暴露在截面上标准化；之后所有股票会按照因子的业务逻辑、根据因子暴露的数值从好到坏排列；最后，假设做多前 10% 或者 20% 的股票，做空后 10% 或者 20% 的股票，以此来构建一个零额投资的投资组合，它就是该因子的投资组合，这个做法在业界非常流行。
-
-多因子模型将股票收益率分解为共同因子收益与特质收益，单只股票的收益率为
-
-$$
-r_{i}=\underbrace{\sum_{k} x_{i,k}f_{k}}_{\text{factor return}}+\underbrace{u_{i}}_{\text {speciﬁc return}}
-$$
-
-其中，$x_{i,k}$为股票$i$在因子$k$上的**风险暴露**，也称为**因子载荷**，本质上就是该股票的所对应的因子值；$f_k$为因子$k$的因子收益，即每单位因子暴露所承载的收益率。Barra模型就是结构化模型中的一种：给定暴露度，估计因子收益率。
-
-N支股票的矩阵形式
-
-$$
-\left[\begin{array}{l}{{r}_1} \\ {{r}_2} \\ {\vdots} \\ {{r}_N}\end{array}\right]=\left[\begin{array}{cccc}{x_{1,1}} & {x_{1,2}} & {\dots} & {x_{1, k}} \\ {x_{2,1}} & {x_{2,2}} & {\dots} & {x_{2, K}} \\ {\vdots} & {\vdots} & {} & {\vdots} \\ {x_{N, 1}} & {x_{N, 2}} & {\ldots} & {x_{N,K}}\end{array}\right]\left[\begin{array}{c}{{f}_1} \\ {{f}_2} \\ {\vdots} \\ {f_K}\end{array}\right]+\left[\begin{array}{c}{{u}_1} \\ {{u}_2} \\ {\vdots} \\ {{u}_N}\end{array}\right]
-\\
-R\quad=\quad Xf\quad \ +\quad u
-$$
-
-**投资组合的收益率**为
-
-$$
-R_{p}=w(Xf+u)=\sum_{i=1}^{N} \left[w_{i} *\left(\sum_{k=1}^{K} x_{i,k} f_{k}+u_{i}\right)\right]
-$$
-
-其中，$w=(w_1,w_2 \dots w_n)^T$为股票权重向量。
-
-**投资组合的风险**为
-
-$$
-\sigma_{p}=\sqrt{w^{T}\left(X F X^{T}+\Delta\right) w}
-$$
-其中，矩阵$F$不同于矩阵$f$表示因子收益率的协方差矩阵（$K \times K$）
-
-$$
-F=\left[\begin{array}{cccc}{Var(f_1)} & {Cov(f_1,f_2)} & {\dots} & {Cov(f_1,f_k)} \\ {Cov(f_2,f_1)} & {Var(f_2)} & {\dots} & {Cov(f_2, f_K)} \\ {\vdots} & {\vdots} & {} & {\vdots} \\ {Cov(f_K, f_1)} & {Cov(f_K, f_2)} & {\ldots} & {Var(f_K)}\end{array}\right]
-$$
-
-$\Delta$表示因子的特异收益率方差矩阵（$N\times N$）
-
-$$
-\Delta =\left[\begin{array}{cccc}{Var(u_1)} & 0 & {\dots} & {0} \\ {0} & {Var(u_2)} & {\dots} & {0} \\ {\vdots} & {\vdots} & {} & {\vdots} \\ {0} & {0} & {\ldots} & {Var(u_K)}\end{array}\right]
-$$
-
 ### Barra 10因子
 
 | 因子       | 解释                                                         |
