@@ -6,6 +6,7 @@ module.exports = {
           html: true
       })
       md.use(require('markdown-it-katex'))
-      }
-    }
+  }
+}
+  
 }
