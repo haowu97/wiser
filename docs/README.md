@@ -21,25 +21,31 @@ Brinson 模型是最常用的绩效分解模型，由Brinson 和Fachler 在论�
 - **配置组合**$A$ (Active Asset Allocation Fund)，只使用实际组合$P$资产配置权重$w^p_i$，不考虑投资经理选股的差异，即各行业的收益率同基准组合$r_i^b$；
 - **选股组合S** (Active stock Selection Fund)则恰好相反，组合的资产配置权重$w_i^b$和基准组合相同，但每个行业里配置的股票和实际组合保持一致，即每个行业的收益率$r_i^p$和实际组合一样。
 
-|                                    | Benchmark Sector Weights $w_i^b $                 | Portfolio Sector Weights $w_i^p$                    |
-| ---------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
-| Benchmark Sector Returns $ r_i^b $ | Benchmark :  $r_b=\sum r^b_iw^b_i$                | Active Asset Allocation Fund: $r_a=\sum r_i^bw_i^p$ |
-| Portfolio Sector Returns $ r_i^p $ | Active stock Selection Fund:$r_s=\sum r_i^pw_i^b$ | Portfolio: $r_P=\sum ri^pw_i^p$                     |
+|                                  | Benchmark Sector Weights $w_i^b$                 | Portfolio Sector Weights $w_i^p$                    |
+| -------------------------------- | ------------------------------------------------- | --------------------------------------------------- |
+| Benchmark Sector Returns $r_i^b$ | Benchmark :  $r_b=\sum r^b_iw^b_i$                | Active Asset Allocation Fund: $r_a=\sum r_i^bw_i^p$ |
+| Portfolio Sector Returns $r_i^p$ | Active stock Selection Fund:$r_s=\sum r_i^pw_i^b$ | Portfolio: $r_P=\sum ri^pw_i^p$                     |
 
-**总超额收益**$ r_T^p $ 为选实际组合 P 和基准组合 B 的收益差异：
+**总超额收益**$r_T^p$ 为选实际组合 P 和基准组合 B 的收益差异：
+
 $$
  r^p_T=r_p−r_b=\sum r^p_iw^p_i−r^b_iw^b_i
 $$
-**选股超额收益**$ r_s^p $ 为选股组合S和基准组合 B 的收益差异：
+
+**选股超额收益**$r_s^p$ 为选股组合S和基准组合 B 的收益差异：
+
 $$
 r^p_S=r_s−r_b=\sum(r^p_i−r^b_i)w^b_i
 $$
 
-**配置超额收益**$ r^p_A $为配置组合A 和基准组合B的收益差异 :
+**配置超额收益**$r^p_A$为配置组合A 和基准组合B的收益差异 :
+
 $$
 r^p_A=r_a−r_b=\sum r^b_i(w^p_i-w^b_i)
 $$
-**交叉收益**$ r_I^p $为超额收益未被解释的剩余部分，即总超额收益减去选股超额收益与配置超额收益之后的剩余：
+
+**交叉收益**$r_I^p$为超额收益未被解释的剩余部分，即总超额收益减去选股超额收益与配置超额收益之后的剩余：
+
 $$
 r_I^p = r_T^p-r_S^p-r_A^p = \sum (r_i^p-r_i^b)(w_i^p-w_i^b)
 $$
@@ -99,7 +105,63 @@ Fama-French五因子模型将超额收益分为5个因子来解释，具体如�
 
 因子计算方法举例：
 
+【SMB】是小市值股票相对大市值股票的收益，SMB的计算方式是：首先把市场里面的所有股票按市值排序，然后等分成三份：第一份是大市值股票（市值在所有股票中最大的1/3），第二份是中市值股票，第三份是小市值股票（市值在所有股票中最小的1/3）。
+
+$$
+SMB = \text{小市值股票的平均期望收益率} - \text{大市值股票的期望收益率}
+$$
+
+## 3. 基于Barra多因子模型的业绩归因
+
+在（风险）多因子模型中，**因子暴露(factor exposure)**和**因子收益率(factor return)**是两个核心的概念。不清楚它们的定义将影响对多因子模型的理解。**所谓因子，就是一个可以描述股票某方面特征的因素**，比如行业因子描述了股票是否属于这个行业，P/E 因子描述股票 Price-to-Earnings ratio。因子暴露就是股票在因子所代表的特征上的取值，比如一个股票的 P/E 为 15.9，那么它对 P/E 因子的因子暴露就是 15.9。**对于一个给定的因子，按照某种权重组合所有股票便形成了一个基于该因子构建的投资组合，该投资组合的收益率就被定义为这个因子的收益率。**
+
+对于给定的因子，如何构建因子投资组合呢？常见的做法是，将所有个股在该因子上的因子暴露在截面上标准化；之后所有股票会按照因子的业务逻辑、根据因子暴露的数值从好到坏排列；最后，假设做多前 10% 或者 20% 的股票，做空后 10% 或者 20% 的股票，以此来构建一个零额投资的投资组合，它就是该因子的投资组合，这个做法在业界非常流行。
+
+多因子模型将股票收益率分解为共同因子收益与特质收益，单只股票的收益率为
+
+$$
+r_{i}=\underbrace{\sum_{k} x_{i,k}f_{k}}_{\text{factor return}}+\underbrace{u_{i}}_{\text {speciﬁc return}}
+$$
+
+其中，$x_{i,k}$为股票$i$在因子$k$上的**风险暴露**，也称为**因子载荷**，本质上就是该股票的所对应的因子值；$f_k$为因子$k$的因子收益，即每单位因子暴露所承载的收益率。Barra模型就是结构化模型中的一种：给定暴露度，估计因子收益率。
+
+N支股票的矩阵形式
+
+$$
+\begin{array}{c}{\left[\begin{array}{c}r_{1} \\ r_{2} \\ \vdots \\ r_{N}\end{array}\right]=\left[\begin{array}{cccc}x_{1,1} & x_{1,2} & \ldots & x_{1, k} \\ x_{2,1} & x_{2,2} & \ldots & x_{2, K} \\ \vdots & \vdots & & \vdots \\ x_{N, 1} & x_{N, 2} & \ldots & x_{N, K}\end{array}\right]\left[\begin{array}{c}f_{1} \\ f_{2} \\ \vdots \\ f_{K}\end{array}\right]+\left[\begin{array}{c}u_{1} \\ u_{2} \\ \vdots \\ u_{N}\end{array}\right]}\end{array} \\
+R\quad=\quad Xf\quad \ +\quad u
+$$
+
+**投资组合的收益率**为
+
+$$
+R_{p}=w(Xf+u)=\sum_{i=1}^{N} \left[w_{i} *\left(\sum_{k=1}^{K} x_{i,k} f_{k}+u_{i}\right)\right]
+$$
+
+其中，$w=(w_1,w_2 \dots w_n)^T$为股票权重向量。
+
+**投资组合的风险**为
+
+$$
+\sigma_{p}=\sqrt{w^{T}\left(X F X^{T}+\Delta\right) w}
+$$
+
+其中，矩阵$F$不同于矩阵$f$表示因子收益率的协方差矩阵（$K \times K$）
+
+$$
+F=\left[\begin{array}{cccc}{Var(f_1)} & {Cov(f_1,f_2)} & {\dots} & {Cov(f_1,f_k)} \\ {Cov(f_2,f_1)} & {Var(f_2)} & {\dots} & {Cov(f_2, f_K)} \\ {\vdots} & {\vdots} & {} & {\vdots} \\ {Cov(f_K, f_1)} & {Cov(f_K, f_2)} & {\ldots} & {Var(f_K)}\end{array}\right]
+$$
+
+
+$\Delta$表示因子的特异收益率方差矩阵（$N\times N$）
+
+$$
+\Delta =\left[\begin{array}{cccc}{Var(u_1)} & 0 & {\dots} & {0} \\ {0} & {Var(u_2)} & {\dots} & {0} \\ {\vdots} & {\vdots} & {} & {\vdots} \\ {0} & {0} & {\ldots} & {Var(u_K)}\end{array}\right]
+$$
+
 ### Barra 10因子
+
+
 
 | 因子       | 解释                                                         |
 | :--------- | :----------------------------------------------------------- |
@@ -136,10 +198,18 @@ Fama-French五因子模型将超额收益分为5个因子来解释，具体如�
 
 1. Damien Laker. Fundamentals of Performance Attribution: The Brinson Model, Barra.
 2. 财通证券. 财通证券“星火”多因子专题报告(四): 基于持仓的基金业绩归因，始于Brinson，归于Barra,  20190410.
-3. 华泰证券. Brinson绩效归因模型原理与实践, 2021022.
-4. 天风证券. 多因子模型的业绩归因评价体系, 20180410.
-5. [结构化（多因子）风险模型中，怎样理解因子暴露度，在实践中如何得到它？](https://www.zhihu.com/question/37398475/answer/1129744856)
-6. [看懂绩效归因(2)：Brinson、五因子和Barra风险归因模块概述 ](https://www.sohu.com/a/271841767_750247)
 
-网盘链接：https://pan.baidu.com/s/1NAt1WIYK_U-f7zR_HE5HSg 
-提取码：wckr
+[20190410－财通证券－财通证券“星火”多因子专题报告（四）：基于持仓的基金业绩归因，始于Brinson，归于Barra (1).pdf](https://uploader.shimo.im/f/beYAfdRiBrPIueYT.pdf?fileGuid=TcgQGPRj8XXpXdGj)
+
+3. 华泰证券. Brinson绩效归因模型原理与实践, 2021022.
+
+[20210221-华泰证券-Brinson绩效归因模型原理与实践.pdf](https://uploader.shimo.im/f/HBY4MsFXvuZffPog.pdf?fileGuid=TcgQGPRj8XXpXdGj)
+
+4. 天风证券. 多因子模型的业绩归因评价体系, 20180410.
+
+[天风证券_20180410_多因子模型的业绩归因评价体系.pdf](https://uploader.shimo.im/f/0C1gUV2cZHQm3HUM.pdf?fileGuid=TcgQGPRj8XXpXdGj)
+
+5. [结构化（多因子）风险模型中，怎样理解因子暴露度，在实践中如何得到它？](https://www.zhihu.com/question/37398475/answer/1129744856?fileGuid=TcgQGPRj8XXpXdGj)
+6. [看懂绩效归因(2)：Brinson、五因子和Barra风险归因模块概述 ](https://www.sohu.com/a/271841767_750247?fileGuid=TcgQGPRj8XXpXdGj)
+7. [Barra模型初探，A股市场风格解析](https://zhuanlan.zhihu.com/p/69149910?fileGuid=TcgQGPRj8XXpXdGj)
+8. [正确理解 Barra 的纯因子模型](https://zhuanlan.zhihu.com/p/38280638?fileGuid=TcgQGPRj8XXpXdGj)
