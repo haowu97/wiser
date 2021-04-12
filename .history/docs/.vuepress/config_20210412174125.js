@@ -38,9 +38,9 @@ module.exports = {
       // ]
       sidebar: [
         '/',
-        '../quantstrategy&technology/chapter1/',
-        '../quantstrategy&technology/chapter2/2.9',
-        '../quantstrategy&technology/chapter2/',
+        '/quantstrategy&technology/chapter1/',
+        '/quantstrategy&technology/chapter2/2.9',
+        '/quantstrategy&technology/chapter2/',
       ]
     }
 }
