@@ -1,5 +1,5 @@
 module.exports = {
-    title: '量化投资——策略与技术',
+    title: '量化投资策略与技术',
     description: 'Just playing around',
     plugins: {
       '@maginapp/katex': {
@@ -17,26 +17,26 @@ module.exports = {
       displayAllHeaders: true, // 默认值: false
       sidebar: [
         {
-          title: '第一章 量化投资概念',   // 必要的
-          path: '/QuantStrategy&Technology/Chapter1/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+          title: '第一章 量化选股',   // 必要的
+          // path: '/QuantStrategy&Technology/Chapter1/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
           prefix: '/QuantStrategy&Technology/Chapter1/',
           collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 1,    // 可选的, 默认值是 1
-          // children: [
-          //   ''
-          // ]
+          sidebarDepth: 2,    // 可选的, 默认值是 1
+          children: [
+            ''
+          ]
         },
         {
-          title: '第二章 量化选股',   // 必要的
-          path: '/quantstrategy&technology/chapter2/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+          title: '第二章 量化',   // 必要的
+          // path: '/quantstrategy&technology/chapter2/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
           prefix: '/QuantStrategy&Technology/Chapter2/',
           collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 1,    // 可选的, 默认值是 1
+          sidebarDepth: 2,    // 可选的, 默认值是 1
           children: [
-            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
-            { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9'}
+            { title: '股票基金', path:'/QuantStrategy&Technology/Chapter2/'},
+            { title: '股票基金', path:'/QuantStrategy&Technology/Chapter2/2.9'}
           ]
-        }
+        },
       ]
       // sidebar: [
       //   '/',

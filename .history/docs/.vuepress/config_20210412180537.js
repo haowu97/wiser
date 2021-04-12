@@ -36,7 +36,7 @@ module.exports = {
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
             { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9'}
           ]
-        }
+        },
       ]
       // sidebar: [
       //   '/',
