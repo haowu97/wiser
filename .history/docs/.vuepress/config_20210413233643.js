@@ -8,7 +8,7 @@ module.exports = {
       // "vuepress-plugin-auto-sidebar": {}
   },
     themeConfig: {
-      logo: '/logo_grey.jpg',
+      logo: '/public/logo_white.png',
       nav: [
         { text: 'Home', link: '/' },
         { text: 'Guide', link: '/guide/' },
