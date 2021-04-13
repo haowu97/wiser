@@ -1,5 +1,5 @@
 module.exports = {
-    title: 'WISER Club',
+    title: '量化投资——策略与技术',
     description: null,
     plugins: {
       '@maginapp/katex': {
