@@ -6,7 +6,6 @@ module.exports = {
         delimiters: 'dollars'
       },
       '@vuepress/active-header-links':{},
-      'vuepress-plugin-nprogress':{},
       // "vuepress-plugin-auto-sidebar": {}
   },
     themeConfig: {
@@ -37,6 +36,7 @@ module.exports = {
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
+            { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9Assessment'}
           ]
         },
         {

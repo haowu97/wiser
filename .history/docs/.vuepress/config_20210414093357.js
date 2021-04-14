@@ -5,13 +5,10 @@ module.exports = {
       '@maginapp/katex': {
         delimiters: 'dollars'
       },
-      '@vuepress/active-header-links':{},
-      'vuepress-plugin-nprogress':{},
       // "vuepress-plugin-auto-sidebar": {}
   },
     themeConfig: {
       logo: '/logo_grey.jpg',
-      smoothScroll: true,
       nav: [
         { text: 'Home', link: '/' },
         { text: 'Guide', link: '/guide/' },
@@ -27,7 +24,7 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
-            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter1/'},
+            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter1/'}
           ]
         },
         {
@@ -37,6 +34,7 @@ module.exports = {
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
+            // { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9'}
           ]
         },
         {
