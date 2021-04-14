@@ -1,14 +1,14 @@
----
-title: Vuepress
----
+# VuePress使用说明
+
+[[toc]]
+
+## 克隆GitHub项目到本地
 
 首先打开[本项目的GitHub地址](https://github.com/henrywu97/wiser)，登陆自己的GitHub帐号之后(如果没有账号需要注册)点击`Fork`。
 
 ![](https://cdn.jsdelivr.net/gh/henrywu97/FigBed@master/Figs/20210414103524.png)
 
 电脑上需要提前安装好Git软件，网上教程很多，[例如](https://blog.csdn.net/weixin_46069582/article/details/114403122)。
-
-### 克隆项目到本地
 
 复制项目的Git地址：
 
@@ -22,7 +22,7 @@ title: Vuepress
 
 将自己写好的Markdown文章复制到对应的章节路径下`wiser\docs\QuantStrategy&Technology`，建议以英文形式命名。
 
-例如，添加`2.9Assessment.md`之后的文档结构示例如下
+例如，添加`2.9Assessment.md`之后的文档结构示例如下：
 
 ```
 ├─Chapter1
@@ -60,15 +60,15 @@ title: Vuepress
 
 ```json
 {
-          title: '第二章 量化选股',   // 必要的
-          path: '/QuantStrategy&Technology/Chapter2/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
-          collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 1,    // 可选的, 默认值是 1
-          children: [
-            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
-            { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9Assessment'}
-          ]
-        },
+  title: '第二章 量化选股',   // 必要的
+  path: '/QuantStrategy&Technology/Chapter2/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
+  collapsable: false, // 可选的, 默认值是 true,
+  sidebarDepth: 1,    // 可选的, 默认值是 1
+  children: [
+    { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
+    { title: '股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9Assessment'}
+  ]
+},
 ```
 
 ### 上传到GitHub仓库
@@ -94,7 +94,7 @@ VuePress支持包括公式在内的几乎所有Markdown语法，但是相比于T
 
 ### 插入本地图片
 
-插入本地图片必须采用相对路径，建议将所在Chapter的所有图片统一放在`wiser\docs\QuantStrategy&Technology\Chapter n`文件夹下，添加之后的文档结构示例如下
+插入本地图片必须采用相对路径，建议将所在Chapter的所有图片统一放在`wiser\docs\QuantStrategy&Technology\Chapter n`文件夹下，添加之后的文档结构示例如下：
 
 ```
 ├─Chapter1
