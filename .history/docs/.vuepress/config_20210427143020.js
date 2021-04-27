@@ -1,7 +1,7 @@
 module.exports = {
     title: 'WISER Club',
     head: [
-      ['link', { rel: 'icon', href: '/logo_white.png' }]
+      ['link', { rel: 'icon', href: '/logo_grey.jpg' }]
     ],
     description: null,
     plugins: {
