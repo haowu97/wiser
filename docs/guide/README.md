@@ -14,7 +14,7 @@
 
 ![](https://cdn.jsdelivr.net/gh/henrywu97/FigBed@master/Figs/20210414103536.gif)
 
-在命令行运行`git clone https://github.com/henrywu97/wiser.git`克隆到本地。
+在命令行运行`git clone 复制的项目地址`即可将项目克隆到本地，例如`git clone https://github.com/henrywu97/wiser.git`。
 
 ![](https://cdn.jsdelivr.net/gh/henrywu97/FigBed@master/Figs/20210414103552.gif)
 
@@ -73,7 +73,7 @@
 
 ### 上传到GitHub仓库
 
-进入`wiser`文件夹下的命令行，在命令行中依次输入以下三行命令：
+这里首先需要管理员添加仓库的修改权限；获得权限后，进入`wiser`文件夹下的命令行，在命令行中依次输入以下三行命令：
 
 ```shell
 //添加全部
@@ -86,7 +86,7 @@ git commit -m '可以是任意字符串，建议写上更新部分的说明'
 git push
 ```
 
-经过管理员通过后，即可看到网页更新的文章内容。
+等待一会儿之后，即可看到网页更新后的内容。
 
 ## Markdown语法说明
 
