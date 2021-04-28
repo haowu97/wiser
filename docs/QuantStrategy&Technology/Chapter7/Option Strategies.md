@@ -877,19 +877,12 @@ Call_re = Price_50
 Call_re = -(strike_price - Price_50) * unit - list_price *unit
 Call_re[Price_50<strike_price] = -list_price*10000
 combine = pd.concat([pd.DataFrame(Price_50).rename(columns = {Price_50.columns[0]:'unit net value'}),pd.DataFrame(Call_re).rename(columns = {Call_re.columns[0]:'Profit for long call'})],axis = 1)
-combine.plot(x='unit net value',y='Profit for long call',kind ='line',figsize=(8,4),title = 'Long Call', grid=True, )
+combine.plot(x='unit net value',y='Profit for long call',kind ='line',figsize=(8,4),title = 'Long Call', grid=True, )\
 ```
 
+long call
 
-
-
-    <matplotlib.axes._subplots.AxesSubplot at 0x7f587b6f7400>
-
-
-
-
-![png](output_20_1.png)
-
+![](./Figs/output_20_1.png)
 
 
 ```python
@@ -905,9 +898,9 @@ def call_return(i, unit, types, Underlying_Price):
 call_return(0,10000,Call,Price_50)
 ```
 
+short call
 
-![png](output_21_0.png)
-
+![](./Figs/output_21_0.png)
 
 #### 2.3.2 Long-Short Call Options
 
@@ -933,9 +926,7 @@ def call_return(i, unit, types, Underlying_Price):
 Long_short_call = call_return(0,10000,Call,Price_50)
 ```
 
-
-![png](output_24_0.png)
-
+![](./Figs/output_24_0.png)
 
 #### 2.3.3 Long-Short Put Options
 
@@ -961,9 +952,7 @@ def Put_return(i, unit, types, Underlying_Price):
 Long_short_put = Put_return(0,10000,Put,Price_50)
 ```
 
-
-![png](output_27_0.png)
-
+![](./Figs/output_27_0.png)
 
 #### 2.3.4 Long-Short Call-Put Options
 
@@ -1029,9 +1018,7 @@ def Covered_return(i, unit, types1, Underlying_Price,spotP_0):
 Covered_return(2,10000,Call,Price_50,3.5)
 ```
 
-
-![png](output_35_0.png)
-
+![](./Figs/output_35_0.png)
 
 #### 3.1.2 Protective put(long stock+long put)
 
@@ -1054,9 +1041,7 @@ def Protective_return(i, unit, types2, Underlying_Price,spotP_0):
 Protective_return(2,10000,Call,Price_50,3.5)
 ```
 
-
-![png](output_38_0.png)
-
+![](./Figs/output_38_0.png)
 
 ### 3.2 Spread Strategies
 
@@ -1094,13 +1079,9 @@ Bull_Call = Bull_return(1,5,1,1,10000,Call,Price_50)
 Bull_Put = Bull_return(1,5,1,1,10000,Put,Price_50)
 ```
 
+![](./Figs/output_42_0.png)
 
-![png](output_42_0.png)
-
-
-
-![png](output_42_1.png)
-
+![](./Figs/output_42_1.png)
 
 
 ```python
@@ -1134,13 +1115,9 @@ Bear_Call = Bear_return(1,5,1,1,10000,Call,Price_50)
 Bear_Put = Bear_return(1,5,1,1,10000,Put,Price_50)
 ```
 
+![](./Figs/output_44_0.png)
 
-![png](output_44_0.png)
-
-
-
-![png](output_44_1.png)
-
+![](./Figs/output_44_1.png)
 
 #### 3.2.2 Box spread strategies
 
@@ -1161,17 +1138,11 @@ Box = Box_return(1,5,1,1,10000,Call, Put,Price_50)
 Box
 ```
 
+![](./Figs/output_47_0.png)
 
-![png](output_47_0.png)
+![](./Figs/output_47_1.png)
 
-
-
-![png](output_47_1.png)
-
-
-
-![png](output_47_2.png)
-
+![](./Figs/output_47_2.png)
 
 #### 3.2.3 Butterfly spread strategies
 
@@ -1241,21 +1212,11 @@ Butterfly_return(1,3,5,1,2,1,10000,Call,Price_50,'short')
 Butterfly_return(1,3,5,1,2,1,10000,Put,Price_50,'short')
 ```
 
+![](./Figs/output_50_0.png)
 
-![png](output_50_0.png)
+![](./Figs/output_50_1.png)
 
-
-
-![png](output_50_1.png)
-
-
-
-![png](output_50_2.png)
-
-
-
-![png](output_50_3.png)
-
+![](./Figs/output_50_2.png)
 
 ### 3.3 Combined strategies
 
@@ -1318,29 +1279,17 @@ Combined_return(7,2,1,1,10000,Call,Put,Price_50,'short')
 Combined_return(7,2,1,1,10000,Call,Put,Price_50,'long')
 ```
 
+![](./Figs/output_53_0.png)
 
-![png](output_53_0.png)
+![](./Figs/output_53_1.png)
 
+![](./Figs/output_53_2.png)
 
+![](./Figs/output_53_3.png)
 
-![png](output_53_1.png)
+![](./Figs/output_53_4.png)
 
-
-
-![png](output_53_2.png)
-
-
-
-![png](output_53_3.png)
-
-
-
-![png](output_53_4.png)
-
-
-
-![png](output_53_5.png)
-
+![](./Figs/output_53_5.png)
 
 ## 4 跨期价差策略_回测
 
