@@ -15,7 +15,50 @@ mpl.rcParams['axes.unicode_minus']=False
 #pd.set_option('display.max_rows',1000) # 打印最大列数
 ```
 
-## 1 期权数据读取及处理
+## 1 期权基础概念
+
+### 1.1 期权介绍
+
+当前约定未来以某一约定价格进行交割的权利，根据执行时间分为欧式和美式期权，根据买卖权利分为call option 和 put option。
+
+1）标的资产：金融资产-股票、指数、债券等；大宗商品；
+
+2）期权形式价格：交易所以一定标准的增减形式给出；
+
+3）数量：合约规定持有合约人有权买入或卖出标的资产数量；
+
+4）行使时限：限制到期日。
+
+### 1.2 期权交易
+
+期权了结方式：
+1）对冲平仓；
+2）履约平仓
+
+期权结算方式：
+1）卖方保证金：每日结算；
+2）买方权利金；
+3）履约结算；
+4）权利放弃时的结算；
+5）实值期权自动结算
+
+### 1.3 牛熊证
+
+定义：追踪标的资产表现得结构性产品，持有人可在一定期限内，以某个指定价格，向发行人购入、售出一定数量证券、商品、外汇或金融其他产品，若标的资产在到期前到达某一指定水平（收回价），发行商将立即收回牛熊证并终止交易。（与call option 与 put option 对应），与权证区别在于“收回价”触发条件；
+
+特点：请见书284；
+
+产品内在风险：
+1）强制收回机制；
+2）杠杆作用；
+3）有效期限；
+4）DELTA；
+5）流动性；
+4、产品优点：
+1）透明度高；
+
+
+## 2 期权数据读取及处理
 
 
 ```python
@@ -820,7 +863,7 @@ Put
 
 
 
-## 2 期权基本介绍
+## 3 期权基本介绍
 
 
 ```python
@@ -836,7 +879,7 @@ Put
 # expire_date 到期日
 ```
 
-### 2.1 期权类型
+### 3.1 期权类型
 
 1）Type of Right: Call/Put;
 
@@ -844,7 +887,7 @@ Put
 
 3) Underlying assets: Financial/Commodity.
 
-### 2.2 货币性
+### 3.2 货币性
 
 |Moneyness|Call option|Put option|
 |:------ |:--------:   |  :------:   |
@@ -852,15 +895,15 @@ Put
 |At the money|S=X|S=X|
 |Out the money|S<X|S>X|
 
-### 2.3 独立期权损益图
+### 3.3 独立期权损益图
 
-#### 2.3.1 初步认知
+#### 3.3.1 初步认知
 
 欧式期权损益：
 
-Call：$max(0, S_T - X)$
+$$Call：max(0, S_T - X)$$
 
-Put:  $max(0, X - S_T)$
+$$Put:  max(0, X - S_T)$$
 
 
 ```python
@@ -902,7 +945,7 @@ short call
 
 ![](./Figs/output_21_0.png)
 
-#### 2.3.2 Long-Short Call Options
+#### 3.3.2 Long-Short Call Options
 
 
 ```python
@@ -928,7 +971,7 @@ Long_short_call = call_return(0,10000,Call,Price_50)
 
 ![](./Figs/output_24_0.png)
 
-#### 2.3.3 Long-Short Put Options
+#### 3.3.3 Long-Short Put Options
 
 
 ```python
@@ -954,7 +997,7 @@ Long_short_put = Put_return(0,10000,Put,Price_50)
 
 ![](./Figs/output_27_0.png)
 
-#### 2.3.4 Long-Short Call-Put Options
+#### 3.3.4 Long-Short Call-Put Options
 
 
 ```python
@@ -982,7 +1025,7 @@ def put_call_return(i, unit, types, Underlying_Price):
     return
 ```
 
-## 3 期权策略构建
+## 4 期权策略构建
 
 
 ```python
@@ -995,9 +1038,9 @@ def put_call_return(i, unit, types, Underlying_Price):
 # types.list_price[i]
 ```
 
-### 3.1 Single option Strategies
+### 4.1 Single option Strategies
 
-#### 3.1.1 Covered Call(long stock+ short call)
+#### 4.1.1 Covered Call(long stock+ short call)
 
 
 ```python
@@ -1020,7 +1063,7 @@ Covered_return(2,10000,Call,Price_50,3.5)
 
 ![](./Figs/output_35_0.png)
 
-#### 3.1.2 Protective put(long stock+long put)
+#### 4.1.2 Protective put(long stock+long put)
 
 
 ```python
@@ -1043,9 +1086,9 @@ Protective_return(2,10000,Call,Price_50,3.5)
 
 ![](./Figs/output_38_0.png)
 
-### 3.2 Spread Strategies
+### 4.2 Spread Strategies
 
-#### 3.2.1 Bull-Bear spread strategies
+#### 4.2.1 Bull-Bear spread strategies
 
 
 ```python
@@ -1119,7 +1162,7 @@ Bear_Put = Bear_return(1,5,1,1,10000,Put,Price_50)
 
 ![](./Figs/output_44_1.png)
 
-#### 3.2.2 Box spread strategies
+#### 4.2.2 Box spread strategies
 
 
 ```python
@@ -1144,7 +1187,7 @@ Box
 
 ![](./Figs/output_47_2.png)
 
-#### 3.2.3 Butterfly spread strategies
+#### 4.2.3 Butterfly spread strategies
 
 
 ```python
@@ -1218,7 +1261,7 @@ Butterfly_return(1,3,5,1,2,1,10000,Put,Price_50,'short')
 
 ![](./Figs/output_50_2.png)
 
-### 3.3 Combined strategies
+### 4.3 Combined strategies
 
 
 ```python
@@ -1291,7 +1334,7 @@ Combined_return(7,2,1,1,10000,Call,Put,Price_50,'long')
 
 ![](./Figs/output_53_5.png)
 
-## 4 跨期价差策略_回测
+## 5 跨期价差策略_回测
 
 基本具体思路：（代码为网上所得，其中并未进行改进，需要后续调整后可用）
 
@@ -1460,7 +1503,7 @@ if __name__ == '__main__':
     ModuleNotFoundError: No module named 'gm'
 
 
-## 5 参考资料及实用资源
+## 6 参考资料及实用资源
 
 1、【API解析】| 期权数据获取及研究贴汇总分享（JQ）
 
