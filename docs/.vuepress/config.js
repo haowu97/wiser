@@ -64,8 +64,7 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
-            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter5/'},
-            { title: '期权套利策略', path:'/QuantStrategy&Technology/Chapter5/Option'}
+            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter5/'},      
           ]
         },
         {
@@ -84,6 +83,7 @@ module.exports = {
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter7/'},
+            { title: '期权套利策略', path:'/QuantStrategy&Technology/Chapter7/Option Arbitrage'}
           ]
         },
         {
