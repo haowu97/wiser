@@ -1,0 +1,1 @@
+本篇记录WISER Club量化金融小组成员学习[《量化投资策略与技术》](/QuantStrategy&Technology.pdf)形成的笔记。

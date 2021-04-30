@@ -9,7 +9,8 @@ module.exports = {
         delimiters: 'dollars'
       },
       '@vuepress/active-header-links':{},
-      'vuepress-plugin-nprogress':{},
+      '@vuepress/nprogress':{},
+      '@vuepress/back-to-top':{},
       // "vuepress-plugin-auto-sidebar": {}
   },
     themeConfig: {
@@ -49,7 +50,10 @@ module.exports = {
           collapsable: false, // 可选的, 默认值是 true,
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
-            { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter3/'},
+            { title: '3.1 趋势追踪', path:'/QuantStrategy&Technology/Chapter3/3.1趋势追踪'},
+            { title: '3.2 市场情绪', path:'/QuantStrategy&Technology/Chapter3/3.2市场情绪'},
+            { title: '3.4 牛熊线', path:'/QuantStrategy&Technology/Chapter3/3.4牛熊线'},
+            { title: '3.5 Hurst指数', path:'/QuantStrategy&Technology/Chapter3/3.5Hurst指数'},
           ]
         },
         {

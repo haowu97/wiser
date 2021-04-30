@@ -4,7 +4,7 @@ heroImage: /poster_compressed.jpg
 heroText: 量化投资策略与技术
 tagline: null
 actionText: 开始学习 →
-actionLink: /quantstrategy&technology/chapter1/
+actionLink: /quantstrategy&technology/
 features:
 - title: Insider
   details: 主要运作团队，负责社团组织和运营；分为课程部、项目部、竟赛部和办公室等；团队精神：Passion Curious Analytical
