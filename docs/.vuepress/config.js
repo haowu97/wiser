@@ -41,6 +41,8 @@ module.exports = {
           sidebarDepth: 0,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter2/'},
+            { title: '2.7 风格轮动', path:'/QuantStrategy&Technology/Chapter2/2.7Style_rotation'},
+            { title: '2.8 行业轮动', path:'/QuantStrategy&Technology/Chapter2/2.8Industry_rotation'},
             { title: '2.9 股票型基金业绩归因评价', path:'/QuantStrategy&Technology/Chapter2/2.9Assessment'}
           ]
         },
