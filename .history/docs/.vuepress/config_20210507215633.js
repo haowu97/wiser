@@ -63,7 +63,7 @@ module.exports = {
           title: '第四章 股指期货套利',   // 必要的
           path: '/QuantStrategy&Technology/Chapter4/',      // 可选的, 标题的跳转链接，应为绝对路径且必须存在
           collapsable: false, // 可选的, 默认值是 true,
-          sidebarDepth: 0,    // 可选的, 默认值是 1
+          sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter4/'},
             { title: '4.1 基本概念', path:'/QuantStrategy&Technology/Chapter4/4.1'},
