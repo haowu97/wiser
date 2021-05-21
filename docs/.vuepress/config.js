@@ -98,7 +98,9 @@ module.exports = {
           sidebarDepth: 0,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter7/'},
-            { title: '期权套利策略', path:'/QuantStrategy&Technology/Chapter7/Option Strategies'}
+            { title: '期权套利策略', path:'/QuantStrategy&Technology/Chapter7/Option Strategies'},
+            { title: 'BS公式与希腊字母', path:'/QuantStrategy&Technology/Chapter7/BS Formula and Greek'},
+            { title: 'Delta中性对冲策略', path:'/QuantStrategy&Technology/Chapter7/Delta Netural Strat'}
           ]
         },
         {
