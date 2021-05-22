@@ -64,6 +64,8 @@ module.exports = {
           sidebarDepth: 1,    // 可选的, 默认值是 1
           children: [
             { title: '本章介绍', path:'/QuantStrategy&Technology/Chapter4/'},
+            { title: '4.3 股指期货跨期套利', path:'/QuantStrategy&Technology/Chapter4/4.3 intertemporal arbitrage'},
+            { title: '4.4 冲击成本', path:'/QuantStrategy&Technology/Chapter4/4.4 impact cost'},
           ]
         },
         {
