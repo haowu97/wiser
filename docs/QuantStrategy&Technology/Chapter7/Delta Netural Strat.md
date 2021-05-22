@@ -46,6 +46,7 @@ $$\Delta PnL = \Delta S \times Delta + 1/2 \times \Delta S^2 \times Gamma + \Del
 
 
 这就是常说的期权收益归因，即期权的Delta收益、Gamma收益、Vega收益、Theta收益：
+
 $$OptionPnL = Delta PnL + Gamma PnL + Vega PnL + Theta PnL + ...$$
 
 而我们的动态对冲，就是想要将delta的影响因素抵消，因此需要通过调整组合，使得Delta = 0，这时：
@@ -53,6 +54,7 @@ $$OptionPnL = Delta PnL + Gamma PnL + Vega PnL + Theta PnL + ...$$
 $$\Delta PnL = 1/2 \times \Delta S^2 \times Gamma + \Delta t \times Theta + \Delta \sigma_{iv} \times Vega$$
 
 由于Theta 与Gamma之间有稳定的负相关关系：
+
 $$Theta \approx -1/2 \times \sigma_{iv} \times S^2 \times Gamma$$
 
 
@@ -64,7 +66,7 @@ $$\Delta PnL = 1/2 \times S^2 \times Gamma \times(({ \Delta S \over S})^2 - \sig
 所以当$(\Delta S /S)^2 >\sigma_{iv}^2$时，即未来的真实波动率大于隐含波动率时，做多Gamma就可以盈利，反之做空
 
 ---
-\
+
 ### **50ETF动态对冲方案设计**
 本篇参考华泰证券研报，给出了一个动态对冲的具体方案。
 
@@ -85,7 +87,7 @@ $$\Delta PnL = 1/2 \times S^2 \times Gamma \times(({ \Delta S \over S})^2 - \sig
     - 若整周的真实波动率**小于**周一开盘时的隐含波动率，且隐含波动率**下行**，做空波动率的 Theta 收益将大于 Gamma 损失，且将获得额外的 Vega 收益，组合同样能获得正收益。
 
 ---
-\
+
 ### **对冲方法**
 
 要消除delta的影响，最好的方法就是实时计算delta，随时调仓，但是因为交易成本的存在，这样显然不科学。因此一般有以下几种对冲方法：
