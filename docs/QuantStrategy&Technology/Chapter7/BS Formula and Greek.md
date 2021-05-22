@@ -5,17 +5,23 @@
 $S_t$是股票的价格，可以通过随机过程来描述股价的变动：
 
 $$ S_t = S_0 e^{\mu t+ \sigma W_t}$$
+
 根据伊藤引理，可以将其随机微分方程写出：
+
 $$ {dS_t \over S_t} = (\mu + {1 \over 2}\sigma^2)dt + \sigma dW_t $$
 
 对于其衍生品 $Y_t = f(S_t)$
+
 $$ dY_t = {\partial f \over \partial t} + {\partial f \over \partial S_t}dS_t+ {1\over2} {\partial^2f\over\partial S_t^2}(dS_t)^2$$
 
 ## 1.2 欧式期权风险中性定价
 
 推导欧式看涨期权风险中性定价，或有回报是:
+
 $$X_T = (S_T - K)^+$$
+
 略去构造鞅过程、复制策略等步骤，这边直接给出金融衍生品的风险中性定价公式：
+
 $$V_t = e^{-r(T-t)}E_Q(X_T|\mathcal{F}_t)$$
 
 然后就可以推导欧式期权的BS公式，其中：
@@ -53,6 +59,7 @@ $$
 ## 1.3 欧式期权看跌-看涨公式 (PCP公式)
 
 通过构造无套利资产组合可以得到***PCP公式***
+
 $$c^E_t + Ke^{-r(T-t)}=p^E_t+S_t$$
 
 
@@ -70,9 +77,11 @@ or:
 $$
 
 ### **(1)欧式看涨期权的Delta**
+
 $$\Delta_t = {\partial c_t \over \partial S_t} = \Phi(d_1)$$
 
 ### **(2)欧式看跌期权的Delta**
+
 $$\Delta_t = {\partial c_t \over \partial S_t} = -\Phi(-d_1)$$
 
 Delta 含义在于他是为了对冲期权而需要持有的股票数量。如果构造一个不受股票市场影响的资产组合，需要在持有期权同时持有- $\Delta$的股票。如果 $\Delta > 0$，那么我们应该卖出股票，反之则需要买入股票。看涨期权的情况下， $\Delta= \Phi(d_1)$恒大于0，如果买入看涨期权，就应该卖出股票进行对冲。在看跌期权的情况下，$\Delta= -\Phi(-d_1)$恒小于0，如果我们买入看跌期权，就应该买进股票而对冲。
@@ -101,21 +110,23 @@ $$\Gamma = {\partial V \over \partial^2 S^2} = {\partial \Delta \over \partial S
 Theta ($\Theta$)是期权价格变化与时间变化的比率
 
 **看涨期权：**
-$$\Theta_t = {\partial c_t\over \partial t}=-{S_t\phi(d_1)\sigma\over2\sqrt{T-t}}-rKe^{-r(T-t)}\Phi(d_2)
-$$
+
+$$\Theta_t = {\partial c_t\over \partial t}=-{S_t\phi(d_1)\sigma\over2\sqrt{T-t}}-rKe^{-r(T-t)}\Phi(d_2)$$
 **看跌期权：**
-$$\Theta_t = {\partial c_t\over \partial t}=-{S_t\phi(d_1)\sigma\over2\sqrt{T-t}}+rKe^{-r(T-t)}\Phi(-d_2)
-$$
+
+$$\Theta_t = {\partial c_t\over \partial t}=-{S_t\phi(d_1)\sigma\over2\sqrt{T-t}}+rKe^{-r(T-t)}\Phi(-d_2)$$
 
 
 ## 2.4 Rho($\rho$)
 Rho 是期权价格变化与利率变化的比率
 欧式看涨期权：
+
 $$\rho_t = {\partial V\over \partial r} = K(T-t)e^{-r(T-t)} \Phi(d_2)$$
 
 ## 2.5 Vega
 Vega 是期权价格变化与标的资产波动率变化的比率
 欧式看涨期权：
+
 $$Vega = {\partial c_t\over \partial \sigma} = S_t \phi(d_1)\sqrt{T-t}$$
 
 
